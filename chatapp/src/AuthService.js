@@ -10,10 +10,11 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             console.log("Auth state changed:", user);
             setUser(user);
         });
+        return () => unsubscribe();
     }, []);
 
     return (

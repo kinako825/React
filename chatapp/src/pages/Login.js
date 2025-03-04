@@ -7,11 +7,11 @@ import { AuthContext } from '../AuthService'
 
 const Login = () => {
 
-    const user = useContext(AuthContext);
-    console.log("User in Login:", user);
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const user = useContext(AuthContext);
+    console.log("User in Login:", user);
 
     const navigate = useNavigate();
 
